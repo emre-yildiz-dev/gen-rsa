@@ -1,0 +1,17 @@
+[package]
+name = "rsa"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+base64 = "0.22.1"
+pem = "3.0.5"
+rand = "0.8"
+rsa = "0.9.8"
+
+[profile.release]
+opt-level = 3        # Optimize for size ("3" for speed)
+lto = true             # Enable Link Time Optimization
+codegen-units = 1      # Better optimization at cost of compile time
+panic = "abort"        # Reduces binary size, no backtraces
+strip = true           # (nightly only) strips debug info
